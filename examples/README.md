@@ -7,6 +7,16 @@ npm i 或 yarn
 查看 package.json 确认运行命令。
 
 # 运行 es5 示例
+
+更新：
+```
+npm init -y
+npm i meta2d.js -S
+```
+拷贝node_modules下meta2d.js文件至es5根目录并修改在index.html的引用即可
+
+
+**以下作废**
 ## 1. 安装全部依赖
 凡是有 package.json 的地方都需要安装依赖。
 npm i 或 yarn
