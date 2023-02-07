@@ -11,7 +11,7 @@ import axios from "axios";
 import { parseSvg } from "@meta2d/svg";
 import Meta2dTwoVue from "./Meta2dTwo.vue";
 
-const onDragStart = (e: any, data) => {
+const onDragStart = (e: any, data: any) => {
   e.dataTransfer.setData("Meta2d", JSON.stringify(data));
 };
 
@@ -22,7 +22,8 @@ nextTick(() => {
   (window as any).meta2dTools = undefined;
 });
 
-const rIcons = ref(icons);
+const rIcons: any = ref(icons);
+
 axios.get("/T型开关A -C.svg").then((res) => {
   const data = res.data;
   const pens = parseSvg(data);

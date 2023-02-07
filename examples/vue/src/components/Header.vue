@@ -8,7 +8,7 @@ const isMinimapActive = ref(false);
 const onCreate = () => {
   window.meta2d.open();
 };
-const onOpen = (e) => {
+const onOpen = (e:any) => {
   const file = e.target.files[0];
   if (!file) {
     return;
@@ -16,7 +16,8 @@ const onOpen = (e) => {
   const reader = new FileReader();
   reader.onload = (event) => {
     try {
-      const json = JSON.parse(event.target.result);
+      // 采用类型断言通过编译器校验
+      const json = JSON.parse(event.target?.result as string);
       window.meta2d.open(json);
     } catch(e) {
       console.log("读取文件失败，请检查数据格式");
@@ -75,7 +76,7 @@ const onHelp = () => {
   window.open("https://www.yuque.com/alsmile/topology/cucep0");
 };
 
-const onKeyDown = (e) => {
+const onKeyDown = (e:any) => {
   switch (e.key) {
     case "b":
     case "B":
@@ -143,6 +144,3 @@ onUnmounted(() => {
     </div>
   </div>
 </template>
-
-<style scoped>
-</style>
